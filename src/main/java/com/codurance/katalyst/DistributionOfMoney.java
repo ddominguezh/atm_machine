@@ -11,5 +11,8 @@ public class DistributionOfMoney {
     public boolean contains(int quantity, MoneyValue value) {
         return money.stream().filter(money -> money.equals(value) && money.quantity() >= quantity).findAny().isPresent();
     }
+    public void withdraw(int quantity, MoneyValue value) {
+        
+    }
     
 }

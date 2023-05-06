@@ -40,4 +40,17 @@ public class DistributionOfMoneyTest {
     public void not_contains_enough_money(){
         assertFalse(this.distribution.contains(501, MoneyValue.ONE));
     }
+
+    @Test
+    public void with_draw_money(){
+        assertTrue(this.distribution.contains(3, MoneyValue.TWO_HUNDRED));
+        this.distribution.withdraw(1, MoneyValue.TWO_HUNDRED);
+        assertFalse(this.distribution.contains(3, MoneyValue.TWO_HUNDRED));
+        assertTrue(this.distribution.contains(2, MoneyValue.TWO_HUNDRED));
+        this.distribution.withdraw(1, MoneyValue.TWO_HUNDRED);
+        assertFalse(this.distribution.contains(2, MoneyValue.TWO_HUNDRED));
+        assertTrue(this.distribution.contains(1, MoneyValue.TWO_HUNDRED));
+        this.distribution.withdraw(1, MoneyValue.TWO_HUNDRED);
+        assertFalse(this.distribution.contains(1, MoneyValue.TWO_HUNDRED));
+    }
 }
