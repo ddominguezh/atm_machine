@@ -6,11 +6,16 @@ import java.util.List;
 
 public class MoneyCalculator {
     
-    List<Money> breakdown(int quantity){
+    private int quantity;
+    public MoneyCalculator(int quantity){
+        this.quantity = quantity;
+    }
+    List<Money> breakdown(){
         ArrayList<Money> breakdown = new ArrayList<Money>();
         Arrays.asList(MoneyValue.values()).forEach(money ->{
-            if(money.amount() == quantity){
-                breakdown.add(Money.create(1, money));
+            if(quantity / money.amount() > 0){
+                breakdown.add(Money.create(quantity / money.amount(), money));
+                quantity = quantity % money.amount();
             }
         });
         return breakdown;
