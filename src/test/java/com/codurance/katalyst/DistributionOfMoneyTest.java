@@ -1,5 +1,6 @@
 package com.codurance.katalyst;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
@@ -33,5 +34,10 @@ public class DistributionOfMoneyTest {
     @Test
     public void contains_enough_money(){
         assertTrue(this.distribution.contains(2, MoneyValue.TWO_HUNDRED));
+    }
+
+    @Test
+    public void not_contains_enough_money(){
+        assertFalse(this.distribution.contains(501, MoneyValue.ONE));
     }
 }
