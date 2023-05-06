@@ -20,6 +20,6 @@ public enum MoneyValue {
         return this.amount;
     }
     public String toString(int quantity){
-        return quantity + " " + this.type.by(quantity) + " of " + this.amount;
+        return quantity + " " + this.type.by(quantity) + " of " + this.amount + ".";
     }
 }
