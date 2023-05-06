@@ -11,5 +11,8 @@ public class Money {
     public static Money create(int quantity, MoneyValue value) {
         return new Money(quantity, value);
     }
-    
+    @Override
+    public String toString(){
+        return value.toString(quantity);
+    } 
 }
