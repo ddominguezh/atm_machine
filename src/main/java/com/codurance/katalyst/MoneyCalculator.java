@@ -6,10 +6,13 @@ import java.util.List;
 public class MoneyCalculator {
     
     List<Money> breakdown(int quantity){
-        return new ArrayList<Money>(){
-            {
-                add(Money.create(1, MoneyValue.ONE));
-            }
-        };
+        ArrayList<Money> breakdown = new ArrayList<Money>();
+        if(quantity == 1){
+            breakdown.add(Money.create(1, MoneyValue.ONE));
+        }
+        if(quantity == 2){
+            breakdown.add(Money.create(1, MoneyValue.TWO));
+        }
+        return breakdown;
     }
 }
