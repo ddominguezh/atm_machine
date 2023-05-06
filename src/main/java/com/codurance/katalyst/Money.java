@@ -11,8 +11,16 @@ public class Money {
     public static Money create(int quantity, MoneyValue value) {
         return new Money(quantity, value);
     }
+
+    public int quantity(){
+        return this.quantity;
+    }
     @Override
     public String toString(){
         return value.toString(quantity);
-    } 
+    }
+
+    public boolean equals(MoneyValue value){
+        return this.value.equals(value);
+    }
 }
