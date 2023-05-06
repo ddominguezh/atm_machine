@@ -27,7 +27,7 @@ public class ATMTest {
         expected.append("2 bills of 200.\n");
         expected.append("1 bill of 20.\n");
         expected.append("1 bill of 10.\n");
-        expected.append("2 coins of 2.");
+        expected.append("2 coins of 2.\n");
 
         assertEquals(expected.toString(), this.outputStream.toString());
     }

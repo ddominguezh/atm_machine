@@ -11,7 +11,7 @@ public class ATM {
 
     public void withdraw(int quantity) {
         List<Money> draw = new MoneyCalculator(quantity).breakdown();
-        draw.forEach(money -> this.screen.write(money.toString()));
+        draw.forEach(money -> this.screen.write(money.toString() + "\n"));
     }
     
 }
