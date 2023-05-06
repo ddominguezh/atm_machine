@@ -10,6 +10,7 @@ public enum MoneyType {
         this.plural = plural;
     }
     public String by(int quantity) {
+        assert(quantity >= 1);
         if(quantity == 1){
             return this.singular;
         }
