@@ -14,4 +14,11 @@ public class MoneyCalculatorTest {
         assertEquals(1, breakdown.size());
         assertEquals("1 coin of 1", breakdown.get(0).toString());
     }
+
+    @Test
+    public void get_breakdown_when_quantity_is_two(){
+        List<Money> breakdown = new MoneyCalculator().breakdown(2);
+        assertEquals(1, breakdown.size());
+        assertEquals("1 coin of 2", breakdown.get(0).toString());
+    }
 }
