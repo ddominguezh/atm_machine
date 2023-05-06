@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Test;
 public class MoneyTypeTest {
     
     @Test
-    public void get_singular_bill(){
+    public void get_type_money_when_quantity_is_one(){
         assertEquals("bill", MoneyType.BILL.by(1));
     }
+
 }
