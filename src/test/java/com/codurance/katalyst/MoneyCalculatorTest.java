@@ -28,4 +28,11 @@ public class MoneyCalculatorTest {
         assertEquals(1, breakdown.size());
         assertEquals("1 bill of 5", breakdown.get(0).toString());
     }
+
+    @Test
+    public void get_breakdown_when_quantity_is_four(){
+        List<Money> breakdown = new MoneyCalculator().breakdown(4);
+        assertEquals(1, breakdown.size());
+        assertEquals("2 coin of 2", breakdown.get(0).toString());
+    }
 }
