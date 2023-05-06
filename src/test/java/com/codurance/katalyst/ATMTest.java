@@ -21,7 +21,7 @@ public class ATMTest {
     @Test
     public void withdraw_money_from_the_ATM(){
         ATM atm = new ATM(new ConsoleScreen());
-        atm.withdraw("434");
+        atm.withdraw(434);
 
         StringBuffer expected = new StringBuffer();
         expected.append("2 bills of 200.\n");

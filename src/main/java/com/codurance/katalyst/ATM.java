@@ -7,7 +7,8 @@ public class ATM {
         this.screen = screen;
     }
 
-    public void withdraw(String string) {
+    public void withdraw(int quantity) {
+
     }
     
 }
