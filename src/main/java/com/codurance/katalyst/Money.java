@@ -15,6 +15,11 @@ public class Money {
     public int quantity(){
         return this.quantity;
     }
+
+    public MoneyValue value() {
+        return this.value;
+    }
+
     @Override
     public String toString(){
         return value.toString(quantity);
