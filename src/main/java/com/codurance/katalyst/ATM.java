@@ -1,5 +1,7 @@
 package com.codurance.katalyst;
 
+import java.util.List;
+
 public class ATM {
 
     Screen screen;
@@ -8,7 +10,8 @@ public class ATM {
     }
 
     public void withdraw(int quantity) {
-
+        List<Money> draw = new MoneyCalculator().breakdown(quantity);
+        draw.forEach(money -> this.screen.write(money.toString()));
     }
     
 }
