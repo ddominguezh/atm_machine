@@ -7,15 +7,25 @@ import java.util.List;
 public class MoneyCalculator {
     
     private int quantity;
-    public MoneyCalculator(int quantity){
+    private DistributionOfMoney distribution;
+    
+    public MoneyCalculator(int quantity, DistributionOfMoney distribution){
         this.quantity = quantity;
+        this.distribution = distribution;
     }
     List<Money> breakdown(){
         ArrayList<Money> breakdown = new ArrayList<Money>();
         Arrays.asList(MoneyValue.values()).forEach(money ->{
-            if(quantity / money.amount() > 0){
-                breakdown.add(Money.create(quantity / money.amount(), money));
-                quantity = quantity % money.amount();
+            int maxQuantity = quantity / money.amount();
+            if(maxQuantity > 0){
+                if(!distribution.contains(maxQuantity, money)){
+                    maxQuantity = distribution.quantity(money);
+                }
+                if(maxQuantity > 0){
+                    breakdown.add(Money.create(maxQuantity, money));
+                    quantity = quantity - (maxQuantity * money.amount());
+                    distribution.withdraw(maxQuantity, money);
+                }
             }
         });
         return breakdown;
