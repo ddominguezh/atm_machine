@@ -1,5 +1,6 @@
 package com.codurance.katalyst;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -52,5 +53,12 @@ public class DistributionOfMoneyTest {
         assertTrue(this.distribution.contains(1, MoneyValue.TWO_HUNDRED));
         this.distribution.withdraw(1, MoneyValue.TWO_HUNDRED);
         assertFalse(this.distribution.contains(1, MoneyValue.TWO_HUNDRED));
+    }
+
+    @Test
+    public void get_quantity(){
+        assertEquals(3, this.distribution.quantity(MoneyValue.TWO_HUNDRED));
+        this.distribution.withdraw(3, MoneyValue.TWO_HUNDRED);
+        assertEquals(0, this.distribution.quantity(MoneyValue.TWO_HUNDRED));
     }
 }
