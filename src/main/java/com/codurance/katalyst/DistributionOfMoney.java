@@ -21,5 +21,11 @@ public class DistributionOfMoney {
             }
         }
     }
-    
+    public int quantity(MoneyValue value){
+        Optional<Money> actual = money.stream().filter(money -> money.equals(value)).findFirst();
+        if(actual.isPresent()){
+            return actual.get().quantity();
+        }
+        return 0;
+    }
 }
