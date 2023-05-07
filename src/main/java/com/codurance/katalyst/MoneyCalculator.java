@@ -28,6 +28,9 @@ public class MoneyCalculator {
                 }
             }
         });
+        if(quantity > 0){
+            throw new InsufficientMoneyException();
+        }
         return breakdown;
     }
 }
