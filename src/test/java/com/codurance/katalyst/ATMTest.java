@@ -1,6 +1,7 @@
 package com.codurance.katalyst;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -53,6 +54,24 @@ public class ATMTest {
         expected.append("44 bills of 10.\n");
         expected.append("1 bill of 5.\n");
 
+        atm.withdraw(1550);
+        expected.append("6 bills of 10.\n");
+        expected.append("98 bills of 5.\n");
+        expected.append("250 coins of 2.\n");
+        expected.append("500 coins of 1.\n");
+
         assertEquals(expected.toString(), this.outputStream.toString());
     }
+
+    @Test
+    public void withdraw_money_from_the_ATM_with_insufficient_money_exception(){
+        ATM atm = new ATM(new ConsoleScreen(), this.distribution);
+        atm.withdraw(1725);
+        atm.withdraw(1825);
+        assertThrows(InsufficientMoneyException.class, () -> {
+            atm.withdraw(1551);
+        });
+       
+    }
+
 }
